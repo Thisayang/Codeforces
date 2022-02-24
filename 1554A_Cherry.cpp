@@ -12,17 +12,11 @@ int main() {
 		ll ans = 0;
 		for (int i = 0; i < n; ++ i) {
 			cin >> a[i];
-			if (max <= a[i]) {
-				max = a[i];
-				flg = i;
-				if (flg != 0) ans = ans > max * a[i - 1] ? ans : max * a[i - 1];
-			}
-			if (i == flg + 1) {
-				ans = ans > max * a[i] ? ans : max * a[i];
+			if(i != 0) {
+				ans = ans > a[i] * a[i - 1] ? ans : a[i] * a[i - 1];
 			}
 		}
-		if (n == 2) cout << a[0] * a[1] << endl;
-		else cout << ans << endl;
+		cout << ans << endl;
 	}
 	return 0;
 }
