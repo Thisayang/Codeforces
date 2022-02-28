@@ -3,17 +3,12 @@
 using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	int t, n;
+	int t, a1, a2, a3;
 	cin >> t;
 	while (t --) {
-		cin >> n;
-		int ans = 0;
-		for (int i = 1; i <= n; ++ i) {
-			int k;
-			cin >> k;
-			ans = max(ans, k - i);
-		}
-		cout << ans << endl;
+		cin >> a1 >> a2 >> a3;
+		int sum = a1 + a3;
+		cout << (abs(sum - 2 * a2) % 3 == 0 ? 0 : 1) << endl; 
 	}
 	return 0;
 }
