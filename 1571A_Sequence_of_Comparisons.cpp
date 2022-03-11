@@ -1,8 +1,11 @@
-#include <bits/stdc++.h>
-#define ll long long int
-using namespace std;
-int main() {
-	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	
-	return 0;
+fun main(){
+	repeat(readLine()!!.toInt()){
+		var s=readLine()!!
+		var a=s.count({it=='>'})
+		var b=s.count({it=='<'})
+		if(a>0&&b>0)println("?")
+		else if(a>0)println(">")
+		else if(b>0)println("<")
+		else println("=")
+	}
 }
