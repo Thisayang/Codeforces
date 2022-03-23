@@ -4,17 +4,18 @@ using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
 	int t, n;
-	vector<int> a(300010);
 	cin >> t;
 	while (t --) {
 		cin >> n;
-		set<int> s;
-		for (int i = 0; i < n; ++ i) {
-			cin >> a[i];
-			s.insert(a[i]);
+		int cnt = n / 3;
+		if (n % 3 == 1) {
+			cout << "1";
 		}
-		for (int i = 1; i <= n; ++ i) {
-			cout << (i > s.size() ? i : s.size()) << " ";
+		for (int i = 0; i < cnt; ++ i) {
+			cout << "21";
+		}
+		if (n % 3 == 2) {
+			cout << "2";
 		}
 		cout << endl;
 	}

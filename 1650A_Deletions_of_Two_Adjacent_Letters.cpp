@@ -3,13 +3,16 @@
 using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	int t, n, m;
+	int t;
+	string s, r;
 	cin >> t;
 	while (t --) {
-		cin >> n >> m;
-		if (n == 1 && m == 1) cout << 0 << endl;
-		else if (min(n, m) == 1) cout << 1 << endl;
-		else cout << 2 << endl;
+		cin >> s >> r;
+		int ans = 0;
+		for (int i = 0; s[i] != 0; ++ i) {
+			if (i % 2 == 0 && s[i] == r[0]) ans = 1;
+		}
+		cout << (ans ? "YES" : "NO") << endl;
 	}
 	return 0;
 }
