@@ -2,29 +2,41 @@
 #define ll long long
 #define ld long double
 using namespace std;
+int solve (int a, int b) {
+	int x = 0;
+	while (a != 0) {
+		a /= b;
+		x ++;
+	}
+	return x;
+}
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
 	int t, a, b;
-	while(cin >> t) {
-		while(t --) {
+	while (cin >> t) {
+		while (t --) {
 			cin >> a >> b;
-            if(a < b) cout << 1 << endl;
-            else if(a == b) cout << 2 << endl;
+            if (a < b) cout << 1 << endl;
+            else if (a == b) cout << 2 << endl;
             else {
-                int ans = 32, tmp = 0, t = b;
-                if(t == 1) t ++;
-                while(tmp <= ans) {
-                    tmp = t - b;
-                    if(tmp >= ans) break;
-                    int s = a;
-                    while(s != 0) {
-                        s /= t;
-                        tmp ++;
-                    }
-                    t ++;
-                    if(tmp < ans) ans = tmp; 
-                }
-                cout << ans << endl;
+				int cnt = 0, ans = 1e9 + 7;
+				if (b == 1) {
+					cnt = 1;
+					b = 2;
+				} 
+				while (true) {
+					int n = solve(a, b);
+					int tmp = cnt + n;
+					if (tmp < ans) {
+						ans = tmp;
+					}
+					cnt ++;
+					b ++;
+					if (ans <= cnt) {
+						break;
+					}
+				}
+				cout << ans << endl;
             }
         }
 	}
