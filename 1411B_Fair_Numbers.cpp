@@ -17,24 +17,24 @@ int main() {
 	cin >> t;
 	while (t --) {
 		cin >> n;
-		set<int> sett;
-		tmp = n;
-		while (tmp > 0) {
-			if (tmp % 10 != 0) {
-				sett.insert(tmp % 10);
+		tmp = n % 2520;
+		if (tmp == 0) cout << n << endl;
+		else {
+			for (ll i = 0; i <= 2520 - tmp; ++ i) {
+				ll x = n + i;
+				while (x > 0) {
+					if (x % 10 != 0) {
+						if ((n + i) % (x % 10) != 0) {
+							goto loop;
+						} 
+					} 
+					x /= 10;
+				}
+				cout << n + i << endl;
+				break;
+				loop: ;
 			}
-			tmp /= 10;
 		}
-		ll a, b;
-		for (auto it = sett.begin(); it != sett.end(); ++ it) {
-			if (it == sett.begin()) a = *(it);
-			else {
-				b = *(it);
-				a = a * b / gcd(a, b);
-			}
-		}
-		if (n % a == 0 || sett.size() == 1) cout << n << endl;
-		else cout << n / a * a + a << endl;
 	}
 	return 0;
 }
