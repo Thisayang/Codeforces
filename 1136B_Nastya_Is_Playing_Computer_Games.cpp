@@ -3,10 +3,10 @@
 using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	ll n;
-	cin >> n;
-	if (n % 2 == 1) cout << (n + 1) / 2 << endl;
-	else if (n != 0) cout << n + 1 << endl;
-	else cout << 0 << endl;
+	int n, k;
+	cin >> n >> k;
+	int ans = n * 3;
+	int mn = min(k - 1, n - k);
+	cout << ans + mn << endl;
 	return 0;
 }

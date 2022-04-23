@@ -3,23 +3,21 @@
 using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	ll k, l, cnt = 0, flg = 0;
-	cin >> k >> l;
-	while (l >= k) {
-		if (l % k != 0) {
-			break;
-		} 
-		if (l == k) {
+	int n, flg = 0, a, b;
+	string s;
+	cin >> n >> s;
+	for (int i = 1; i < n; ++ i) {
+		if (s[i] < s[i - 1]) {
+			a = i;
+			b = i + 1;
 			flg = 1;
 			break;
 		}
-		l /= k;
-		cnt ++;
-		if (l == k || l == 1) flg = 1;
 	}
 	if (flg == 0) cout << "NO" << endl;
 	else {
-		cout << "YES" << endl << cnt << endl;
+		cout << "YES" << endl;
+		cout << a << " " << b << endl;
 	}
 	return 0;
 }
