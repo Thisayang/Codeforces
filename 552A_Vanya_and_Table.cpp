@@ -3,16 +3,14 @@
 using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	int n, m, a, mx = 0, mn;
-	cin >> n >> m;
+	ll n, x[4], sum = 0;
+	cin >> n;
 	for (int i = 0; i < n; ++ i) {
-		for (int j = 0; j < m; ++ j) {
-			cin >> a;
-			if (j == 0) mn = a;
-			else mn = min(mn, a);
+		for (int j = 0; j < 4; ++ j) {
+			cin >> x[j];
 		}
-		mx = max(mn, mx);
+		sum += ((abs(x[2] - x[0]) + 1) * (abs(x[3] - x[1]) + 1));
 	}
-	cout << mx << endl;
+	cout << sum << endl;
 	return 0;
 }

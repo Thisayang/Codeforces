@@ -3,16 +3,13 @@
 using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	int n, m, a, mx = 0, mn;
-	cin >> n >> m;
+	int n, a[1010], cnt = 0;
+	cin >> n;
 	for (int i = 0; i < n; ++ i) {
-		for (int j = 0; j < m; ++ j) {
-			cin >> a;
-			if (j == 0) mn = a;
-			else mn = min(mn, a);
-		}
-		mx = max(mn, mx);
+		cin >> a[i];
+		if(a[i] == 1) cnt ++;
 	}
-	cout << mx << endl;
+	if ((n == 1 && cnt == 1) || (n - cnt == 1 && n != 1))cout << "YES" << endl;
+	else cout << "NO" << endl;
 	return 0;
 }
