@@ -1,45 +1,35 @@
-#include <bits\stdc++.h>
-#define ll long long
-#define ld long double
+#include <bits/stdc++.h>
+#define ll long long int
 using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	int t, n, k, a[110];
-	while(cin >> t) {
-		while(t --) {
-			cin >> n >> k;
-			for(int i = 1; i <= n; ++ i) cin >> a[i];
-			bool flg = 0;
-			if(k > 10000) {
-				cout << -1 << endl;
-				continue;
-			}
-			if(n == 1) {
-				cout << -1 << endl;
-				continue;
-			}
-			while(k > 1) {
-				int i;
-				for(i = 1; i < n; ) {
-					if(a[i] >= a[i + 1]) ++ i;
-					else {
-						int tmp = min(a[i + 1] - a[i], k - 1);
-						k -= tmp;
-						a[i] += tmp;
-						break;
-					}
-				}
-				if(i == n) break;
-			}
-			for(int i = 1; i < n; ++ i) {
-				if(a[i] < a[i + 1]) {
-					cout << i << endl;
-					flg = 1;
+	int t, n, k;
+	cin >> t;
+	while (t --) {
+		cin >> n >> k;
+		vector<int> a(n);
+		for (int i = 0; i < n; ++ i) {
+			cin >> a[i];
+		}
+		int mx = *max_element(a.begin(), a.end());
+		if (n * mx < k) {
+			cout << -1 << endl;
+			continue;
+		}
+		int ans = n + 1;
+		for (int i = 0; i < k; ++ i) {
+			int to = -2;
+			for (int j = 0; j < n - 1; ++ j) {
+				if (a[j] < a[j + 1]) {
+					to = j;
 					break;
 				}
 			}
-			if(flg == 0) cout << -1 << endl;
+			ans = to + 1;
+			if (to == -2) break;
+			a[to] ++;
 		}
+		cout << ans << endl;
 	}
 	return 0;
 }
