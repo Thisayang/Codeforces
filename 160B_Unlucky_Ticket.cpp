@@ -6,25 +6,15 @@ const long long mod = 1e9 + 7;
 using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	int n;
-	cin >> n;
-	vector<int> a(n), b(n, 0);
+	int n, cnt = 0;
+	string s;
+	cin >> n >> s;
+	sort(s.begin(), s.begin() + n);
+	sort(s.begin() + n, s.end());
 	FOR(i, 0, n) {
-		cin >> a[i];
+		if (s[i] > s[i + n]) cnt ++;
+		else if (s[i] < s[i + n]) cnt --;
 	}
-	int max = a[n - 1];
-	ROF(i, n - 2, -1) {
-		if (a[i] > max) {
-			max = a[i];
-		} else if (a[i] == max) {
-			b[i] = 1;
-		} else {
-			b[i] = max + 1 - a[i];
-		}
-	}
-	FOR(i, 0, n) {
-		cout << b[i] << " ";
-	}
-	cout << endl;
+	cout << (abs(cnt) == n ? "YES" : "NO") << endl;
 	return 0;
 }
