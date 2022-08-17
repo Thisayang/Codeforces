@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define FOR(i, a, n) for (int i = a; i < int(n); ++ i)
+#define ROF(i, a, n) for (int i = a; i > int(n); -- i)
+const long long mod = 1e9 + 7;
+using namespace std;
+int main() {
+	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+	int n, m, sum = 0, s = 0, ans = 0;
+	cin >> n >> m;
+	vector<int> x(n), y(m);
+	FOR(i, 0, n) cin >> x[i];
+	FOR(i, 0, m) cin >> y[i];
+	s = y[0];
+	sum = x[0];
+	for (int i = 0, j = 0; j < m && i < n; ) {
+		if (sum < s) {
+			i ++;
+			sum += x[i];
+		} else if (sum > s) {
+			j ++;
+			s += y[j];
+		} 
+		if (sum == s) {
+			++ i;
+			sum = x[i];
+			++ j;
+			s = y[j];
+			ans ++;
+		}
+	}
+	cout << ans << endl;
+	return 0;
+}
