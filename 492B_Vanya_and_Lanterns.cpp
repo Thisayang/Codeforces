@@ -6,21 +6,19 @@ const long long mod = 1e9 + 7;
 using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	string s, t;
-	cin >> s >> t;
-	map<char, int> mp;
-	FOR(i, 0, t.length()) {
-		mp[t[i]] ++;
+	int n;
+	double l;
+	cin >> n >> l;
+	vector<double> a(n);
+	FOR(i, 0, n) {
+		cin >> a[i];
 	}
-	FOR(i, 0, s.length()) {
-		ROF(j, '9', s[i]) {
-			if (mp[j] > 0) {
-				mp[j] --;
-				s[i] = j;
-				break;
-			}
-		}
+	sort(a.begin(), a.end());
+	double ans = a[0];
+	FOR(i, 1, n){
+		ans = max(ans, (a[i] - a[i - 1]) / 2);
 	}
-	cout << s << endl;
+	ans = max(ans, l - a[n - 1]);
+	printf("%.10lf\n", ans);
 	return 0;
 }

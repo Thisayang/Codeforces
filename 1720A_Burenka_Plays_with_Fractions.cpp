@@ -6,21 +6,14 @@ const long long mod = 1e9 + 7;
 using namespace std;
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	string s, t;
-	cin >> s >> t;
-	map<char, int> mp;
-	FOR(i, 0, t.length()) {
-		mp[t[i]] ++;
+	ll t, a, b, c, d;
+	cin >> t;
+	while (t --) {
+		cin >> a >> b >> c >> d;
+		ll x = a * d, y = b * c;
+		if (x == y) cout << 0 << endl;
+		else if ((y != 0 && x % y == 0) || (x != 0 && y % x == 0)) cout << 1 << endl;
+		else cout << 2 << endl;
 	}
-	FOR(i, 0, s.length()) {
-		ROF(j, '9', s[i]) {
-			if (mp[j] > 0) {
-				mp[j] --;
-				s[i] = j;
-				break;
-			}
-		}
-	}
-	cout << s << endl;
 	return 0;
 }
