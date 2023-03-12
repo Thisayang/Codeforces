@@ -7,17 +7,25 @@ using namespace std;
 
 void Solve(void)
 {
-    int n;
-    int m;
-    cin >> n >> m;
-    vector<pair<int, int>> a(m);
-    for (int i = 0; i < m; ++i) {
-        cin >> a[i].first >> a[i].second;
+    int x1;
+    int y1;
+    int x2;
+    int y2;
+    int x3;
+    int y3;
+    int ans = 0;
+    int t = 2;
+    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+    if (x1 == x2 || x1 == x3 || x2 == x3) {
+        ans++;
     }
-    if (m == n) {
-        puts("NO");
+    if (y1 == y2 || y1 == y3 || y2 == y3) {
+        ans++;
+    }
+    if (ans == t) {
+        cout << "NO" << endl;
     } else {
-        puts("YES");
+        cout << "YES" << endl;
     }
 }
 

@@ -8,17 +8,24 @@ using namespace std;
 void Solve(void)
 {
     int n;
-    int m;
-    cin >> n >> m;
-    vector<pair<int, int>> a(m);
-    for (int i = 0; i < m; ++i) {
-        cin >> a[i].first >> a[i].second;
+    cin >> n;
+    string s;
+    cin >> s;
+    int cnt = 0;
+    for (int i = 0; i < n; ++i) {
+        if (s[i] == '1') {
+            cnt++;
+        }
+        if (i == 0) {
+            continue;
+        }
+        if (cnt & 1) {
+            cout << "+";
+        } else {
+            cout << "-";
+        }
     }
-    if (m == n) {
-        puts("NO");
-    } else {
-        puts("YES");
-    }
+    cout << endl;
 }
 
 int main() {

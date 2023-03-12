@@ -5,20 +5,21 @@
 const long long mod = 1e9 + 7;
 using namespace std;
 
-void Solve(void)
+char Solve(void)
 {
-    int n;
-    int m;
-    cin >> n >> m;
-    vector<pair<int, int>> a(m);
-    for (int i = 0; i < m; ++i) {
-        cin >> a[i].first >> a[i].second;
+    int eight = 8;
+    string s;
+    bool flg = false;
+    for (int i = 0; i < eight; ++i) {
+        cin >> s;
+        if (s == "RRRRRRRR") {
+            flg = true;
+        }
     }
-    if (m == n) {
-        puts("NO");
-    } else {
-        puts("YES");
+    if (flg) {
+        return 'R';
     }
+    return 'B';
 }
 
 int main() {
@@ -26,7 +27,8 @@ int main() {
 	int t;
     cin >> t;
     while (t--) {
-        Solve();
+        getchar();
+        cout << Solve() << endl;
     }
 	return 0;
 }

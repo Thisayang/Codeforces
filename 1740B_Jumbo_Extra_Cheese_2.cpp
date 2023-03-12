@@ -8,17 +8,19 @@ using namespace std;
 void Solve(void)
 {
     int n;
-    int m;
-    cin >> n >> m;
-    vector<pair<int, int>> a(m);
-    for (int i = 0; i < m; ++i) {
-        cin >> a[i].first >> a[i].second;
+    cin >> n;
+    long long l = 0;
+    long long s = 0;
+    long long a;
+    long long b;
+    long long two = 2;
+    for (int i = 0; i < n; ++i) {
+        cin >> a >> b;
+        l = max(l, max(a, b));
+        s += min(a, b);
     }
-    if (m == n) {
-        puts("NO");
-    } else {
-        puts("YES");
-    }
+    cout << (l + s) * two << endl;
+    return;
 }
 
 int main() {
