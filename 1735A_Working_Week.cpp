@@ -4,8 +4,20 @@
 #define ROF(i, a, n) for (int i = a; i > int(n); -- i)
 const long long mod = 1e9 + 7;
 using namespace std;
+
+void Solve(void) {
+    int n;
+    cin >> n;
+    int tmp = 6;
+    cout << (n - tmp) / 3 << endl;
+}
+
 int main() {
 	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
-	
+	int t;
+    cin >> t;
+    while (t--) {
+        Solve();
+    }
 	return 0;
 }
