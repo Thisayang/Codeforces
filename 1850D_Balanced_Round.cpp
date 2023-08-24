@@ -5,17 +5,21 @@ using namespace std;
 int Solve(int n, int k)
 {
 	vector<int> a(n);
-	int ans = 0;
+	int ans = 1;
+	int cnt = 1;
 	for (int i = 0; i < n; ++i) {
 		cin >> a[i];
 	}
 	sort(a.begin(), a.end());
 	for (int i = 1; i < n; ++i) {
 		if (a[i] - a[i - 1] > k) {
-			ans++;
+			cnt = 1;
+		} else {
+			++cnt;
 		}
+		ans = max(ans, cnt);
 	}
-	return ans;
+	return n - ans;
 }
 
 int main(void)
@@ -25,7 +29,7 @@ int main(void)
 	int k;
 	cin >> t;
 	while (t--) {
-		cin >> n;
+		cin >> n >> k;
 		cout << Solve(n, k) << endl;
 	}
 }
