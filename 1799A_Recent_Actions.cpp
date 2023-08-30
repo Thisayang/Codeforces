@@ -4,24 +4,31 @@ using namespace std;
 
 int Solve(int n, int m)
 {
-	set<int> set;
+	set<int> st;
+	vector<int> a(n + 1, 0);
+	vector<int> ans(n + 1, -1);
 	int tmp;
-	for (int i = 0; i < m; ++i) {
-		cin >> tmp;
-		if (tmp > n) {
-			set.insert(tmp);
-		}
-	}
-	int ans = n - set.size();
-	tmp = set.size();
 	for (int i = 1; i <= n; ++i) {
-		if (i <= ans) {
-			cout << -1 << " ";
+		a[i] = i;
+		st.insert(i);
+	}
+	for (int i = 1; i <= m; ++i) {
+		cin >> tmp;
+		if (st.count(tmp)) {
+			swap(tmp, a[1]);
 		} else {
-			cout << tmp-- << " ";
+			a.insert(a.begin(), tmp);
+			st.insert(tmp);
+			st.erase(a.back());
+			if (a.back() <= n) {
+				ans[a.back()] = i;
+			}
+			a.pop_back();
 		}
 	}
-	cout << endl;
+	for (int i = 1; i <= n; ++i) {
+		cout << ans[i] << (i != n ? " " : "\n");
+	}
 	return 0;
 }
 
