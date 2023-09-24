@@ -7,16 +7,22 @@ int Solve(int n)
 	string s;
 	cin >> s;
 	vector<int> cnt(26, 0);
-	int ans = 0;
-	for (char c : s) {
+	set<char> right;
+	int left = 0;
+	for (char c : s)
 		++cnt[c - 'a'];
-	}
 	for (int i = 0; i < 26; ++i) {
-		if (cnt[i] >= 2) {
-			ans += 2;
-		} else {
-			ans += cnt[i];
-		}
+		if (cnt[i] > 0)
+			++left;
+	}
+	int ans = left;
+	for (char c : s) {
+		if (right.find(c) == right.end())
+			right.insert(c);
+		--cnt[c - 'a'];
+		if (cnt[c - 'a'] == 0)
+			--left;
+		ans = max(left + int(right.size()), ans);
 	}
 	return ans;
 }

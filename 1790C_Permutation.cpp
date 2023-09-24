@@ -8,20 +8,16 @@ int Solve(int n)
 	vector<int> cnt(n + 1, 0);
 	int tmp;
 	for (int i = 0; i < n; ++i) {
-		for (int j = 0; j < n - 1; ++j) {
+		for (int j = 0; j < n - 1; ++j)
 			cin >> a[i][j];
-		}
 	}
 	for (int i = 0; i < n - 1; ++i) {
 		for (int j = 0; j < n; ++j) {
-			
-			if (i == n - 2 && cnt[a[j][i]] == 0) {
+			if (i == n - 2 && cnt[a[j][i]] == 0)
 				tmp = a[j][i];
-			}
 			cnt[a[j][i]]++;
-			if (cnt[a[j][i]] == n - 1 && a[j][i] != tmp) {
+			if (cnt[a[j][i]] == n - 1 && a[j][i] != tmp)
 				cout << a[j][i] << " ";
-			}
 		}
 	}
 	cout << tmp << endl;
