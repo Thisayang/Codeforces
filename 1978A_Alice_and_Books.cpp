@@ -3,15 +3,15 @@
 using namespace std;
 
 int Solve(int n) {
-	if (n % 2) {
-		cout << "NO" << endl;
-		return 0;
+	int a[n];
+	int maxn = 0;
+	for (int i = 0; i < n; ++i) {
+		cin >> a[i];
+		if (i != n - 1) {
+			maxn = max(maxn, a[i]);
+		}
 	}
-	cout << "YES" << endl;
-	for (int i = 0; i < n; i += 2) {
-		cout << "AAB";
-	}
-	cout << endl;
+	cout << maxn + a[n - 1] << endl;
 	return 0;
 }
 

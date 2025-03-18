@@ -3,15 +3,11 @@
 using namespace std;
 
 int Solve(int n) {
-	if (n % 2) {
-		cout << "NO" << endl;
-		return 0;
-	}
-	cout << "YES" << endl;
-	for (int i = 0; i < n; i += 2) {
-		cout << "AAB";
-	}
-	cout << endl;
+	int x;
+	int y;
+	cin >> x >> y;
+	int ans = (n + min(x, y) - 1) / min(x, y);
+	cout << ans << endl;
 	return 0;
 }
 

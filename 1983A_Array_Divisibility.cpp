@@ -3,13 +3,8 @@
 using namespace std;
 
 int Solve(int n) {
-	if (n % 2) {
-		cout << "NO" << endl;
-		return 0;
-	}
-	cout << "YES" << endl;
-	for (int i = 0; i < n; i += 2) {
-		cout << "AAB";
+	for (int i = 1; i <= n; ++i) {
+		cout << i << " ";
 	}
 	cout << endl;
 	return 0;
